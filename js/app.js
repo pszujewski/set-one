@@ -4,6 +4,9 @@ function getYearOfBirth(age) {
 }
 
 function whoAmI(name, age) {
+  if (name === undefined || age === undefined) {
+    console.error("Arguments not valid");
+  }
   try {
     if (age < 0) {
       throw new Error("Hey man, you can't use negatives!");
