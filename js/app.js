@@ -4,19 +4,19 @@ function getYearOfBirth(age) {
 }
 
 function whoAmI(name, age) {
-  if (name === undefined || age === undefined || typeof name !== "string" || isNaN(age)) {
-    console.error("Arguments not valid");
-  }
   try {
+    if (typeof name === "undefined" || typeof age === "undefined" || typeof name !== "string" || typeof age !=="number") {
+      throw new Error("Arguments is undefined or not the right type");
+    }
+
     if (age < 0) {
       throw new Error("Hey man, you can't use negatives!");
-    } else {
-      console.log(`hi, my name is ${name} and I am ${age} years old.`);
-      getYearOfBirth(age);
     }
+    console.log(`hi, my name is ${name} and I am ${age} years old.`);
+    getYearOfBirth(age);
   }
   catch(err) {
     console.log(err.message);
   }
 }
-whoAmI("Peter", "9");
+whoAmI("Peter", -9);
